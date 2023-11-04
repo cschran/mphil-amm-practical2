@@ -3,6 +3,8 @@
 
 ## Structure and Dynamics of Water
 
+![A box of Water](water.jpg)
+
 ### Introduction
 This assignment is to investigate some properties of liquid water using a computer.
 You will learn how to simulate the time evolution of a “box of” water molecules using cp2k.
