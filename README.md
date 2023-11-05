@@ -16,10 +16,12 @@ The capacity of water to form hydrogen bonds contributes in a major way to its s
 #### Before you start
 
 Ensure you have the following applications installed and in your command line search:
+
 1. `VMD`:\
 VMD is a molecular visualization program for displaying, animating, and analysing molecular systems using 3-D graphics and built-in scripting.\
 Can either be installed via `conda`, or from source code (not advised for beginners).\
 `conda install -c conda-forge vmd-python`
+
 2. `CP2K`:\
 CP2K is a quantum chemistry and solid state physics software package that can perform atomistic simulations of solid state, liquid, molecular, periodic, material, crystal, and biological systems.\
 Can either be installed via `conda`, or from source code (not advised for beginners).\
@@ -28,6 +30,7 @@ If you are fortunate enough to be the proud owner of a MAC, congrats, you just m
 The conda version of cp2k is unfortunately outdated, so you would only be able to run `01-FF-Water`.\
 There is a homebrew install, which should work fine, see [details](https://www.cp2k.org/howto:compile_on_macos).\
 `brew install cp2k`.
+
 3. Make sure that you have clonded the repository with all required input files.\
 `git clone https://github.com/cschran/mphil-amm-practical2.git`
 
