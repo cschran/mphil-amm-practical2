@@ -17,17 +17,22 @@ The capacity of water to form hydrogen bonds contributes in a major way to its s
 
 Ensure you have the following applications installed and in your command line search:
 1. `VMD`:\
-VMD is a molecular visualization program for displaying, animating, and analyzing molecular systems using 3-D graphics and built-in scripting.\
+VMD is a molecular visualization program for displaying, animating, and analysing molecular systems using 3-D graphics and built-in scripting.\
 Can either be installed via `conda`, or from source code (not advised for beginners).\
 `conda install -c conda-forge vmd-python`
 2. `CP2K`:\
 CP2K is a quantum chemistry and solid state physics software package that can perform atomistic simulations of solid state, liquid, molecular, periodic, material, crystal, and biological systems.\
 Can either be installed via `conda`, or from source code (not advised for beginners).\
-`conda install -c conda-forge cp2k`
+`conda install -c conda-forge cp2k`\
+If you are fortunate enough to be the proud owner of a MAC, congrats, you just made your life slightly more interesting.\
+The conda version of cp2k is unfortunately outdated, so you would only be able to run `01-FF-Water`.\
+There is a homebrew install, which should work fine, see [details](https://www.cp2k.org/howto:compile_on_macos).\
+`brew install cp2k`.
 3. Make sure that you have clonded the repository with all required input files.\
 `git clone https://github.com/cschran/mphil-amm-practical2.git`
 
 If you don't have a working `conda` installation, it is very easy to setup via [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/).
+
 
 Ensure that you have at least a rudimentary knowledge of the unix command line interface (also called the shell) to your computer, and can use grep, awk and other simple text manipulation tools to clean the output files to be processed.
 
@@ -66,8 +71,9 @@ By plotting the time evolution of crucial properties, such as temperature, total
 Can you use these checks to determine when your simulations should be equilibrated?
 
 3. Compute the Radial Distribution Function\
-Use either `VMD` or other software (e.g. `ase`, `mdtraj`, or `MDAnalysis`) to obtain the RDF for the OH and OO pairs.\
-Which of the two models do you think performs better?
+Either write your own code, or use existing software packages (e.g. `ase`, `mdtraj`, or `MDAnalysis`) to obtain the RDF for the OH and OO pairs.\
+You can use VMD to check your answer.\
+Which of the two models do you think performs better? You can use experimental results and also high accuracy results from [this recent PRL paper](https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.129.226001) as a comparison.
 
 4. Compute the diffusion constant of water\
 Use the Einstein relation to compute the diffusion constant of water. You can again decide to use existing software packages for this analysis, but it might also be insightful to write your own code for this task.\
