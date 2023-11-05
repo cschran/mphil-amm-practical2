@@ -82,6 +82,6 @@ The Einstein relation in three dimensions is $\langle r^2\rangle = 6Dt$, where $
     2. Note that the MSD needs to be computed for unwrapped coordinates (as written to file by cp2k). Why?
     3. Compare the diffusivity you obtained with experimental values.
 
-5. Modify the input files to perform NpT simulations (Optional)\
-Change the input accordingly and use these new NpT simulations to obtain the equilibrium density of the two water models at 300K and 1bar.\
+5. Obtain the equilibrium density of water (Optional)\
+Change the input accordingly to perform NpT simulations and use these to obtain the equilibrium density of the two water models at 300K and 1bar.\
 Which of the two models performs better?
