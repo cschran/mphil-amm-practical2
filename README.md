@@ -36,6 +36,7 @@ There is a homebrew install, which should work fine, see [details](https://www.c
 
 If you don't have a working `conda` installation, it is very easy to setup via [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/).
 
+If you are using one of the CSC laptops, please remember to update the machine `sudo update_laptop` and work within a conda environment `conda create -n cp2k_env`, that can be activated with `conda activate cp2k_env`.
 
 Ensure that you have at least a rudimentary knowledge of the unix command line interface (also called the shell) to your computer, and can use grep, awk and other simple text manipulation tools to clean the output files to be processed.
 
