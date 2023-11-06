@@ -12,6 +12,13 @@ Just looking at the “movie” of how the water molecules move around is intere
 there are hydrogen bonds connecting every molecule to its neighbours, which are not as strong as covalent bonds, but strong enough so that at room temperature the molecules do not just slide past each other without hindrance.
 The capacity of water to form hydrogen bonds contributes in a major way to its special role in the life of living organisms.
 
+### Pre-note for Windows Users
+It is highly recommended to setup a virtual machine with a linux distribution on your windows setup, or have experience with the Windows Subsystem for Linux.
+
+Information on how to setup an ubuntu virtual machine within a view minutes can be found [here](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview).
+
+For more information on the Windows Subsystem for Linux, please see this [Link](https://learn.microsoft.com/en-us/windows/wsl/about).
+
 ### Simulations
 #### Before you start
 
@@ -31,7 +38,7 @@ The conda version of cp2k is unfortunately outdated, so you would only be able t
 There is a homebrew install, which should work fine, see [details](https://www.cp2k.org/howto:compile_on_macos).\
 `brew install cp2k`.
 
-3. Make sure that you have clonded the repository with all required input files.\
+3. Make sure that you have cloned the repository with all required input files.\
 `git clone https://github.com/cschran/mphil-amm-practical2.git`
 
 If you don't have a working `conda` installation, it is very easy to setup via [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/).
