@@ -20,7 +20,7 @@ Ensure you have the following applications installed and in your command line se
 1. `VMD`:\
 VMD is a molecular visualization program for displaying, animating, and analysing molecular systems using 3-D graphics and built-in scripting.\
 Can either be installed via `conda`, or from source code (not advised for beginners).\
-`conda install -c conda-forge vmd-python`
+`conda install -c conda-forge vmd`
 
 2. `CP2K`:\
 CP2K is a quantum chemistry and solid state physics software package that can perform atomistic simulations of solid state, liquid, molecular, periodic, material, crystal, and biological systems.\
