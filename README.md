@@ -49,6 +49,26 @@ Ensure that you have at least a rudimentary knowledge of the unix command line i
 
 Note that `VMD` stores its working and output files either in your home directory or in the directory you launched it from, depending on the installation. You might need to move files around.
 
+### Note on using CSC clusters
+Instead of running this practical on your own machine, you can also rely on the CSC clusters cerberus1-3.
+For that, please follow these instructions:
+
+1. ssh to cerberus1.
+
+2. Create a directory under your username in `/local/data/public/USERNAME`, if not done before.
+
+3. Add this path to your condarc: `vi ~/.condarc`:
+```
+envs_dirs:
+  - /local/data/public/USERNAME/conda-env
+```
+
+3. Create a new conda environment `conda create cp2k_env` and activate it with `conda activate cp2k_env`.
+
+4. After that, you can use the above description.
+
+VMD will not work via this route as it requires libGL and is quite heavy on the x-server. For visualisation, copy the results over to your local machine and use VMD there.
+
 ### Run force field simulations
 The directory `01-FF-Water` contains the input files for running an NVT simulation of 64 molecules of water in a periodic box. 
 Familiarise yourself with the input and try to determine what functional forms are used to describe the inter- and intramolecular interactions.
