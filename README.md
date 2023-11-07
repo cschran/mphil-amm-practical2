@@ -63,9 +63,9 @@ envs_dirs:
   - /local/data/public/USERNAME/conda-env
 ```
 
-3. Create a new conda environment `conda create cp2k_env` and activate it with `conda activate cp2k_env`.
+4. Create a new conda environment `conda create cp2k_env` and activate it with `conda activate cp2k_env`.
 
-4. After that, you can use the above description.
+5. After that, you can use the above description.
 
 VMD will not work via this route as it requires libGL and is quite heavy on the x-server. For visualisation, copy the results over to your local machine and use VMD there.
 
