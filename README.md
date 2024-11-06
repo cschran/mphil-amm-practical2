@@ -106,6 +106,12 @@ The Einstein relation in three dimensions is $\langle r^2\rangle = 6Dt$, where $
     1. Measure $\langle r^2\rangle$ as a function of $t$, and hence obtain $D$.
     2. Note that the MSD needs to be computed for unwrapped coordinates (as written to file by cp2k). Why?
     3. Compare the diffusivity you obtained with experimental values.
+\
+Note for MDAnalysis:\
+You can install it on cerberus by creating a virtual environment and installing it via pip.\
+`python3 -m venv /data/cerberus1/$USER/myenv`\
+`source /data/cerberus1/$USER/myenv/bin/activate`\
+`pip install --upgrade MDAnalysis`
 
 5. Obtain the equilibrium density of water (Optional)\
 Change the input accordingly to perform NpT simulations and use these to obtain the equilibrium density of the two water models at 300K and 1bar.\
