@@ -52,18 +52,33 @@ Familiarise yourself with the input and try to determine what functional forms a
 `CP2K` input can be cryptic, but you can find more information in the [CP2K Manual](https://manual.cp2k.org/trunk/).\
 Before you start the simulation, think about the limitations of this approach.
 
+You will also need to modify the input slightly and specify a suitable timestep in fs `TIMESTEP XXXXXXX`. What would be a reasonable value for the timestep? 
+
 The simulation can be launched with the following command:\
-`cp2k.psmp cp2k.inp > cp2k.out`
+`/data/cerberus1/cs2121/cp2k/exe/Linux-intel-x86_64/cp2k.popt cp2k.inp > cp2k.out`
+
+The simulation will run for 10000 steps, and the output will be written to the file `cp2k.out`. In addition, there will be a trajectory and energy file.
+
+You can parallelize the simulation by using the following command:\
+`mpirun -np 4 /data/cerberus1/cs2121/cp2k/exe/Linux-intel-x86_64/cp2k.popt cp2k.inp > cp2k.out`
+
+Run a short scaling test to see how well the simulation scales with the number of cores.
 
 You can control the frequency of output and request printing more properties. Note also that you might want to experiment with longer simulations, or make changes to the thermostat, barostat, or timestep.
-
 
 ### Run simulations with a machine learning potential
 The directory `02-MLP-Water` contains the input files for running an NVT simulation of the same box of water as before, but using a machine learning potential, trained to reproduce the energies and forces of the hybrid DFT functional rev-PBE0-D3.\
 Again, take a look at the input and try to identify the differences to the force field simulation.
 
+You will again need to modify the input slightly and specify a suitable timestep in fs `TIMESTEP XXXXXXX`. What would be a reasonable value in this case, remembering that the machine learning potential is fully flexible?
+
 As before, the simulation can be launched with the following command:\
-`cp2k.psmp cp2k.inp > cp2k.out`
+`/data/cerberus1/cs2121/cp2k/exe/Linux-intel-x86_64/cp2k.popt cp2k.inp > cp2k.out`
+
+As before, you can parallelize the simulation by using the following command:\
+`mpirun -np 4 /data/cerberus1/cs2121/cp2k/exe/Linux-intel-x86_64/cp2k.popt cp2k.inp > cp2k.out`
+
+Run a short scaling test to see how well the simulation scales with the number of cores.
 
 How does the computing time compare to the FFMD simulation? What other differences do you notice?
 
@@ -73,7 +88,7 @@ We will now move to computing properties using the output of the performed simul
 1. Visualise the trajectory with `VMD` or `ase gui`\
 `vmd -e view-nice.tcl -args Nstart Nstop Nstep NAME-OF-TRAJECTORY.xyz` can be used to open the trajectory locally on your laptop (requires VMD). Note that `view-nice.tcl` modifies the standard visualization and also sets the correct box size, that is not part of the xyz file format. It will also wrap all molecules back to the box. You will need to modify the parameters after `-args` to specify the start and stop frame, and how many frames should be skipped when reading the trajectory.\
 What can you learn from this visualization and what differences do you observe comparing the two different simulation setups?
-
+\
 `ase gui NAME-OF-TRAJECTORY.xyz` can also be used to open the trajectory locally on your laptop (requires `ase`).\
 
 2. Check convergence and stability\
