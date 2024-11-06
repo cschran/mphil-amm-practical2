@@ -12,17 +12,13 @@ Just looking at the “movie” of how the water molecules move around is intere
 there are hydrogen bonds connecting every molecule to its neighbours, which are not as strong as covalent bonds, but strong enough so that at room temperature the molecules do not just slide past each other without hindrance.
 The capacity of water to form hydrogen bonds contributes in a major way to its special role in the life of living organisms.
 
-### Pre-note for Windows Users
-It is highly recommended to setup a virtual machine with a linux distribution on your windows setup, or have experience with the Windows Subsystem for Linux.
-
-Information on how to setup an ubuntu virtual machine within a view minutes can be found [here](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview).
-
-For more information on the Windows Subsystem for Linux, please see this [Link](https://learn.microsoft.com/en-us/windows/wsl/about).
-
 ### Simulations
-#### Before you start
 
-Ensure you have the following applications installed and in your command line search:
+#### Before you start
+We will run this practical on one of the cerberus clusters that you have access to.
+All software required for the completion has been installed there.
+
+If you wanted to run this practical on your own machine, you would need to install the following software:
 
 1. `VMD`:\
 VMD is a molecular visualization program for displaying, animating, and analysing molecular systems using 3-D graphics and built-in scripting.\
@@ -38,36 +34,17 @@ The conda version of cp2k is unfortunately outdated, so you would only be able t
 There is a homebrew install, which should work fine, see [details](https://www.cp2k.org/howto:compile_on_macos).\
 `brew install cp2k`.
 
-3. Make sure that you have cloned the repository with all required input files.\
+Adapt the following ssh command to your needs, please distribute over the three available clusters:\
+`ssh -X USER@cerberus1/2/3.lsc.phy.private.cam.ac.uk`
+
+For the rest of the practical work within a directory under `/data/cerberus1/2/3`. For example, if you logged into cerberus2, create a directory under your username:\
+`mkdir /data/cerberus2/$USER`
+
+Change to this directory and clone the github repository of this practical:\
 `git clone https://github.com/cschran/mphil-amm-practical2.git`
 
-If you don't have a working `conda` installation, it is very easy to setup via [`miniconda`](https://docs.conda.io/projects/miniconda/en/latest/).
-
-If you are using one of the CSC laptops, please remember to update the machine `sudo update_laptop` and work within a conda environment `conda create -n cp2k_env`, that can be activated with `conda activate cp2k_env`.
-
-Ensure that you have at least a rudimentary knowledge of the unix command line interface (also called the shell) to your computer, and can use grep, awk and other simple text manipulation tools to clean the output files to be processed.
-
-Note that `VMD` stores its working and output files either in your home directory or in the directory you launched it from, depending on the installation. You might need to move files around.
-
-### Note on using CSC clusters
-Instead of running this practical on your own machine, you can also rely on the CSC clusters cerberus1-3.
-For that, please follow these instructions:
-
-1. ssh to cerberus1.
-
-2. Create a directory under your username in `/local/data/public/USERNAME`, if not done before.
-
-3. Add this path to your condarc: `vi ~/.condarc`:
-```
-envs_dirs:
-  - /local/data/public/USERNAME/conda-env
-```
-
-4. Create a new conda environment `conda create cp2k_env` and activate it with `conda activate cp2k_env`.
-
-5. After that, you can use the above description.
-
-VMD will not work via this route as it requires libGL and is quite heavy on the x-server. For visualisation, copy the results over to your local machine and use VMD there.
+Once you are in the directory, execute the following command to setup the correct system environment:\
+`source setup.sh`
 
 ### Run force field simulations
 The directory `01-FF-Water` contains the input files for running an NVT simulation of 64 molecules of water in a periodic box. 
@@ -93,9 +70,11 @@ How does the computing time compare to the FFMD simulation? What other differenc
 ### Analyse the properties of water
 We will now move to computing properties using the output of the performed simulations.
 
-1. Visualise the trajectory with `VMD`\
-`vmd -e view-nice.tcl -args Nstart Nstop Nstep NAME-OF-TRAJECTORY.xyz` can be used to open the trajectory. Note that `view-nice.tcl` modifies the standard visualization and also sets the correct box size, that is not part of the xyz file format. It will also wrap all molecules back to the box. You will need to modify the parameters after `-args` to specify the start and stop frame, and how many frames should be skipped when reading the trajectory.\
+1. Visualise the trajectory with `VMD` or `ase gui`\
+`vmd -e view-nice.tcl -args Nstart Nstop Nstep NAME-OF-TRAJECTORY.xyz` can be used to open the trajectory locally on your laptop (requires VMD). Note that `view-nice.tcl` modifies the standard visualization and also sets the correct box size, that is not part of the xyz file format. It will also wrap all molecules back to the box. You will need to modify the parameters after `-args` to specify the start and stop frame, and how many frames should be skipped when reading the trajectory.\
 What can you learn from this visualization and what differences do you observe comparing the two different simulation setups?
+
+`ase gui NAME-OF-TRAJECTORY.xyz` can also be used to open the trajectory locally on your laptop (requires `ase`).\
 
 2. Check convergence and stability\
 By plotting the time evolution of crucial properties, such as temperature, total energy, conserved quantity, make sure that your simulations are sane.\
